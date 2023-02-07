@@ -1,23 +1,25 @@
 public class PontoBarraNatal
 {
-    public void Executar(int pontos)
+    public int[][] Executar(int pontos)
     {
+        var retorno = new int[pontos][];
         for (int i = 0; i < pontos; i++)
         {
+            retorno[i] = new int[pontos * 2];
             for (int j = 0; j < pontos; j++)
             {
                 if (i + j == pontos - 1)
                 {
-                    Console.Write("/");
+                    retorno[i][j] = 2;
                 }
 
-                else if (i + j < pontos -1)
+                else if (i + j < pontos - 1)
                 {
-                    Console.Write(" ");
+                    retorno[i][j] = 3;
                 }
                 else
                 {
-                    Console.Write(".");
+                    retorno[i][j] = 1;
                 }
             }
 
@@ -25,23 +27,19 @@ public class PontoBarraNatal
             {
                 if (i == j)
                 {
-                    Console.Write("\\");
+                    retorno[i][pontos + j] = 4;
                 }
 
                 else if (j > i)
                 {
-                    Console.Write(" ");
+                    retorno[i][pontos + j] = 3;
                 }
                 else
                 {
-                    Console.Write(".");
+                    retorno[i][pontos + j] = 1;
                 }
             }
-
-            
-            Console.WriteLine();
         }
-
+        return retorno;
     }
-
 }

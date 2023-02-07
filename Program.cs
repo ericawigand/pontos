@@ -9,6 +9,15 @@ Console.WriteLine("7. Nomes");
 
 var input = Console.ReadLine();
 
+var dicio = new Dictionary<int, string> {
+    {0, ""},
+    {1, "#"}, 
+    {2, "\\"},
+    {3, " "},
+    {4, "/"}
+
+};
+
 switch (input)
 {
     case "1":
@@ -21,7 +30,7 @@ switch (input)
         break;
     case "3":
         PontoBarra b = new();
-        b.Executar(5);
+        Imprime(b.Executar(5), dicio);
         break;
     case "4":
         PontoBarraCheia c = new();
@@ -29,7 +38,7 @@ switch (input)
         break;
     case "5":
         PontoBarraNatal n = new();
-        n.Executar(10);
+        Imprime(n.Executar(10), dicio);
         break;
     case "6":
         Pares f = new();
@@ -41,4 +50,26 @@ switch (input)
         break;
 }
 
+void Imprime(int[][] arr, Dictionary<int, string> dicionario)
+{
+    Console.Clear();
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write("[ ");
+        Console.Write(string.Join(' ', arr[i]));
+        Console.WriteLine(" ]");
+    }
+
+Console.WriteLine();
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        for (int j = 0; j < arr[i].Length; j++)
+        {
+            Console.Write(dicionario[arr[i][j]]);
+        }
+        Console.WriteLine();
+    }
+
+}
 

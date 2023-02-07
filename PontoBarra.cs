@@ -1,14 +1,19 @@
 public class PontoBarra
 {
-   public void Executar(int pontos)
+    public int[][] Executar(int pontos)
     {
+        int[][] retorno = new int[pontos][];
+
         for (int i = 0; i < pontos; i++)
         {
-            for (int j = 0; j < i; j++)
+            retorno[i] = new int[pontos];
+            int j = 0;
+            for (; j < i; j++)
             {
-                Console.Write(".");
+                retorno[i][j] = 1;
             }
-            Console.WriteLine("\\");
+            retorno[i][j] = 2;
         }
+        return retorno;
     }
 }
